@@ -10,12 +10,12 @@ echo "Chaning to the LTE Build directory...";
 
 cd $BUILD_PATH;
 
-# echo "Starting OAI Instances...";
+echo "Starting OAI Instances...";
 
-# for ((i = 0; i < $OAI_INSTANCES; i++))
-# do
-#     ENODEB=1 sudo -E ./lte-softmodem -O $OAI_PATH/OAI_config.conf --basicsim --noS1 | nc -l localhost $OUTPUT_PORT
-# done & 
+for ((i = 0; i < $OAI_INSTANCES; i++))
+do
+    ENODEB=1 sudo -E ./lte-softmodem -O $OAI_PATH/OAI_config.conf --basicsim --noS1 | nc -l $OUTPUT_PORT
+done & 
 
 echo "Starting device simulators..." &
 
